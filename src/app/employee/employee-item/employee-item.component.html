@@ -1,0 +1,25 @@
+<h1>Cadastro de funcionário</h1>
+<div>
+  <div>
+    <label>Código</label>
+    <input type="number" [(ngModel)]="employee.id">
+  </div>
+  <div>
+    <label>Nome</label>
+    <input type="text" [(ngModel)]="employee.name">
+  </div>
+  <div>
+    <label>Salário</label>
+    <input type="number" [(ngModel)]="employee.salary">
+  </div>
+  <div>
+    <label>Sexo</label>
+    <select [(ngModel)]="employee.gender">
+      <option *ngFor="let g of gendersList"> {{g}} </option>
+    </select>
+  </div>
+  <div>
+    <button id="cancel" (click)="goToPage('employee')">Cancelar</button>
+    <button id="save" [disabled]="!isValid()" (click)="save()">Salvar</button>
+  </div>
+</div>

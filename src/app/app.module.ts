@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {EmployeeComponent} from './employee/employee.component';
 import {EmployeeItemComponent} from './employee/employee-item/employee-item.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {EmployeeService} from './services/employee-service';
 import {HttpClientModule} from '@angular/common/http';
 import {DepartmentComponent} from './department/department.component';
@@ -13,6 +13,11 @@ import {DepartmentItemComponent} from './department/department-item/department-i
 import {BaseService} from './services/base-service';
 import {ZoneComponent} from './zone/zone.component';
 import {ZoneItemComponent} from './zone/zone-item/zone-item.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FlexModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,13 @@ import {ZoneItemComponent} from './zone/zone-item/zone-item.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    FlexModule,
   ],
   providers: [
     EmployeeService,

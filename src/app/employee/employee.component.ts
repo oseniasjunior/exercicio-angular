@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
 import {EmployeeService} from '../services/employee-service';
 import {Employee} from '../models/employee';
 
@@ -20,7 +20,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   public goToPage(path: string): void {
-    this.router.navigate([path]);
+    const extras: NavigationExtras = {queryParamsHandling: 'merge'};
+    this.router.navigate([path], extras).then();
   }
 
 }

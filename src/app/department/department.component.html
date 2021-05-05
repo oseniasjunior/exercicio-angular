@@ -1,0 +1,20 @@
+<h1>Lista de departamentos</h1>
+<div>
+  <button (click)="goToPage('department/create')">Novo Departamento</button>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>Data de criação</th>
+      <th>Data de modificação</th>
+    </tr>
+    <tr *ngFor="let d of departmentList">
+      <td> {{ d.id }} </td>
+      <td> {{ d.name }} </td>
+      <td> {{ d.created_at }} </td>
+      <td> {{ d.modified_at }} </td>
+    </tr>
+  </table>
+</div>

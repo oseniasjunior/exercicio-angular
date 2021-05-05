@@ -23,6 +23,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {RouterModule} from '@angular/router';
+import {MatCardModule} from '@angular/material/card';
+import {MatTable, MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -42,14 +44,16 @@ import {RouterModule} from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FlexModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule,
-    FlexModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatCardModule,
+    MatTableModule,
+    MatButtonModule,
   ],
   providers: [
     EmployeeService,

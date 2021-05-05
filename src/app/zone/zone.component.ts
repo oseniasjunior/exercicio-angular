@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavigationExtras, Router} from '@angular/router';
 import {BaseService} from '../services/base-service';
 import {Zone} from '../models/zone';
+import {Helpers} from '../helpers';
 
 @Component({
   selector: 'app-zone',
@@ -11,6 +12,8 @@ import {Zone} from '../models/zone';
 export class ZoneComponent implements OnInit {
 
   zoneList: Zone[] = [];
+  displayedColumns: string[] = ['id', 'name', 'created_at', 'modified_at'];
+  helpers = Helpers;
 
   constructor(private zoneService: BaseService<Zone>, private router: Router) {
     this.zoneService.path = 'zone';

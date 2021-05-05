@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Department} from '../models/department';
 import {NavigationExtras, Router} from '@angular/router';
 import {BaseService} from '../services/base-service';
+import {Helpers} from '../helpers';
+
 
 @Component({
   selector: 'app-department',
@@ -11,6 +13,8 @@ import {BaseService} from '../services/base-service';
 export class DepartmentComponent implements OnInit {
 
   departmentList: Department[] = [];
+  displayedColumns: string[] = ['id', 'name', 'created_at', 'modified_at'];
+  helpers = Helpers;
 
   constructor(private departmentService: BaseService<Department>, private router: Router) {
     this.departmentService.path = 'department';
@@ -26,7 +30,6 @@ export class DepartmentComponent implements OnInit {
       ex => console.log(ex)
     );
   }
-
 
   public goToPage(path: string): void {
     const extras: NavigationExtras = {queryParamsHandling: 'merge'};

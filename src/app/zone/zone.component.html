@@ -1,22 +1,39 @@
-<div fxFlex>
-  <h1>Lista de departamentos</h1>
-  <div>
-    <button (click)="goToPage('zone/create')">Nova Zona</button>
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
+  <div class="floating-button">
+    <button mat-fab color="primary" (click)="goToPage('zone/create')">
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
-  <div>
-    <table>
-      <tr>
-        <th>Código</th>
-        <th>Nome</th>
-        <th>Data de criação</th>
-        <th>Data de modificação</th>
-      </tr>
-      <tr *ngFor="let d of zoneList">
-        <td> {{ d.id }} </td>
-        <td> {{ d.name }} </td>
-        <td> {{ d.created_at }} </td>
-        <td> {{ d.modified_at }} </td>
-      </tr>
+
+  <mat-card class="mat-table">
+    <table mat-table [dataSource]="zoneList" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Código</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef>Criado em</th>
+        <td mat-cell *matCellDef="let element">{{helpers.formatDate(element.created_at)}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="modified_at">
+        <th mat-header-cell *matHeaderCellDef>Modificado em</th>
+        <td mat-cell *matCellDef="let element">{{helpers.formatDate(element.modified_at)}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
     </table>
-  </div>
+
+  </mat-card>
+
 </div>
+
+

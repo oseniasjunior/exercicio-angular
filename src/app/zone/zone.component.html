@@ -1,20 +1,22 @@
-<h1>Lista de departamentos</h1>
-<div>
-  <button (click)="goToPage('zone/create')">Nova Zona</button>
-</div>
-<div>
-  <table>
-    <tr>
-      <th>Código</th>
-      <th>Nome</th>
-      <th>Data de criação</th>
-      <th>Data de modificação</th>
-    </tr>
-    <tr *ngFor="let d of zoneList">
-      <td> {{ d.id }} </td>
-      <td> {{ d.name }} </td>
-      <td> {{ d.created_at }} </td>
-      <td> {{ d.modified_at }} </td>
-    </tr>
-  </table>
+<div fxFlex>
+  <h1>Lista de departamentos</h1>
+  <div>
+    <button (click)="goToPage('zone/create')">Nova Zona</button>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Data de criação</th>
+        <th>Data de modificação</th>
+      </tr>
+      <tr *ngFor="let d of zoneList">
+        <td> {{ d.id }} </td>
+        <td> {{ d.name }} </td>
+        <td> {{ d.created_at }} </td>
+        <td> {{ d.modified_at }} </td>
+      </tr>
+    </table>
+  </div>
 </div>

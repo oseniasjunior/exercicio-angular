@@ -1,3 +1,9 @@
-#main {
+
+html, body, #main {
+  margin: 0;
+  height: 100%;
+}
+
+#content {
   margin: 20px;
 }

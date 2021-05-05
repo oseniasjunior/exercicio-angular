@@ -18,6 +18,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FlexModule} from '@angular/flex-layout';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -33,6 +38,7 @@ import {FlexModule} from '@angular/flex-layout';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -40,6 +46,10 @@ import {FlexModule} from '@angular/flex-layout';
     MatFormFieldModule,
     MatButtonModule,
     FlexModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     EmployeeService,

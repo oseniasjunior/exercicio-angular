@@ -1,15 +1,28 @@
-<div id="main">
-  <div>
-    <a [routerLink]="['employee']">Listagem de funcionários</a>
+<div id="main" fxLayout="column" fxLayoutAlign="start stretch">
+  <div fxFlex="64px" fxLayout="row">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Sistema Vendas</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
   </div>
-  <div>
-    <a [routerLink]="['department']">Listagem de departamentos</a>
-  </div>
-  <div>
-    <a [routerLink]="['zone']">Listagem de zonas</a>
-  </div>
-  <router-outlet></router-outlet>
+
+  <mat-drawer-container fxFlex="calc(100% - 64px)" fxFill>
+    <mat-drawer #drawer mode="side" [opened]="true">
+      <mat-nav-list>
+        <h3 mat-subheader>Cadastros básicos</h3>
+        <p><a mat-list-item [routerLink]="['zone']">Zonas</a></p>
+        <p><a mat-list-item [routerLink]="['department']">Departamentos</a></p>
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div id="content" fxFlex>
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
 </div>
-
-
-

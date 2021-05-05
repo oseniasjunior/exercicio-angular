@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
 
-html, body {
+@include mat-core();
+
+body {
   height: 100%;
 }
 
@@ -19,3 +22,87 @@ body {
 table {
   width: 100%;
 }
+
+@mixin custom-theme($config-or-theme) {
+
+  $config: mat-get-color-config($config-or-theme);
+  // Extract the palettes you need from the theme definition.
+  $primary: map-get($config, primary);
+  $accent: map-get($config, accent);
+  $warn: map-get($config, warn);
+  $main-color: rgb(236, 240, 245);
+
+  html, body, .main {
+    margin: 0;
+    height: 100%;
+  }
+
+  .main-container {
+
+    .mat-drawer {
+      background: mat-color($primary);
+      box-shadow: 3px 0 10px 0 rgba(0, 0, 0, 0.35);
+
+      .mat-drawer-inner-container {
+        -ms-overflow-style: none !important;; // IE 10+
+        scrollbar-width: none !important; // Firefox
+
+        &::-webkit-scrollbar {
+          display: none !important;;
+        }
+      }
+
+      .mat-nav-list {
+
+        .mat-subheader {
+          height: 40px;
+          color: mat-color($primary, 600);
+          font-weight: 500;
+          text-transform: uppercase;
+          opacity: .5;
+          letter-spacing: 1px;
+        }
+
+        .mat-list-item {
+          touch-action: auto !important;
+          height: 40px;
+          color: mat-color($primary, 100);
+
+          &.active, &:hover {
+            background-color: mat-color($accent);
+            color: mat-contrast($primary, 500);
+          }
+
+          .mat-line {
+            font-weight: 500;
+          }
+        }
+      }
+
+    }
+
+    .mat-drawer-content {
+      background-color: $main-color;
+
+      .container {
+        padding: 20px 15px 15px;
+      }
+
+    }
+  }
+}
+
+$primary: mat-palette($mat-grey, 900);
+$accent: mat-palette($mat-red, 600);
+$warn: mat-palette($mat-orange, A200, A100, A400);
+
+$theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+  )
+));
+
+@include angular-material-theme($theme);
+@include custom-theme($theme);

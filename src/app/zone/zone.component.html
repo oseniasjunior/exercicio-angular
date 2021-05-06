@@ -1,10 +1,9 @@
 <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
   <div class="floating-button">
-    <button mat-fab color="primary" (click)="goToPage('zone/create')">
+    <button mat-fab color="accent" (click)="goToPage('zone/create')">
       <mat-icon>add</mat-icon>
     </button>
   </div>
-
 
   <mat-card class="mat-table">
     <mat-table #table [dataSource]="zoneList" class="mat-elevation-z8">

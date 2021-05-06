@@ -115,7 +115,7 @@ table {
     }
 
     .mat-row:hover, .mat-row:nth-child(odd):hover {
-      background-color: mat-color($accent, 50);
+      background-color: mat-color($accent, 100);
     }
 
     .mat-header-row, .mat-row:nth-child(odd) {
@@ -174,7 +174,7 @@ table {
 }
 
 $primary: mat-palette($mat-grey, 900);
-$accent: mat-palette($mat-red, 600);
+$accent: mat-palette($mat-pink, 400);
 $warn: mat-palette($mat-orange, A200, A100, A400);
 
 $theme: mat-light-theme((

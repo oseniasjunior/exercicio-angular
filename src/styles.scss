@@ -31,6 +31,7 @@ table {
   $accent: map-get($config, accent);
   $warn: map-get($config, warn);
   $main-color: rgb(236, 240, 245);
+  $strip-color: #f2f4f5;
 
   html, body, .main {
     margin: 0;
@@ -90,6 +91,86 @@ table {
 
     }
   }
+
+
+  .mat-table {
+    overflow: visible;
+
+    .mat-row {
+      min-height: 44px;
+      cursor: pointer;
+
+      &.cdk-drag {
+        cursor: move;
+      }
+    }
+
+    .mat-footer-row, .mat-header-row {
+      min-height: 48px;
+    }
+
+    .mat-header-cell {
+      font-weight: 600;
+      color: #333333;
+    }
+
+    .mat-row:hover, .mat-row:nth-child(odd):hover {
+      background-color: mat-color($accent, 50);
+    }
+
+    .mat-header-row, .mat-row:nth-child(odd) {
+      background-color: $strip-color;
+    }
+
+    .mat-cell, .mat-footer-cell, .mat-header-cell {
+      white-space: normal;
+      word-wrap: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 14px;
+    }
+
+    @media screen and (max-width: 960px) {
+      border: 0;
+      vertical-align: middle;
+
+      .mat-header-row {
+        display: none !important;
+      }
+
+      .mat-row {
+        min-height: 22px;
+        border-bottom: 5px solid rgba(0, 0, 0, 0.12);
+        display: block !important;
+      }
+
+      .mat-cell {
+        display: flex;
+        text-align: right;
+        font-weight: bold;
+        max-width: none !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      }
+
+      .mat-cell:before {
+        display: flex;
+        flex: 1 1 0;
+        content: attr(data-header);
+        float: left;
+        text-transform: uppercase;
+        font-weight: normal;
+      }
+
+      .mat-cell:last-child {
+        border-bottom: 0;
+      }
+
+      .mat-cell:first-child {
+        padding-top: 4%;
+      }
+    }
+  }
+
 }
 
 $primary: mat-palette($mat-grey, 900);

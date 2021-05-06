@@ -1,21 +1,23 @@
 <div fxFlex fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="10px">
-  <form>
-    <div fxLayout="column" fxLayoutAlign="space-evenly stretch" fxLayoutGap="10px">
+  <mat-card>
+    <form>
+      <div fxLayout="column" fxLayoutAlign="space-evenly stretch" fxLayoutGap="10px">
 
-      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
-           fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px"
+             fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
 
-        <mat-form-field fxFlex appearance="outline">
-          <mat-label>Nome</mat-label>
-          <input matInput type="text" [(ngModel)]="department.name" [ngModelOptions]="{standalone: true}">
-        </mat-form-field>
+          <mat-form-field fxFlex appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput type="text" [(ngModel)]="department.name" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
 
+        </div>
+
+        <div fxFlex fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+          <button mat-raised-button color="accent" (click)="goToPage('department')">Cancelar</button>
+          <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+        </div>
       </div>
-
-      <div fxFlex fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
-        <button mat-raised-button color="accent" (click)="goToPage('department')">Cancelar</button>
-        <button mat-raised-button color="primary" (click)="save()">Salvar</button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </mat-card>
 </div>
